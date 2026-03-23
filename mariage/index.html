@@ -568,6 +568,35 @@
             border-radius: 1px;
         }
 
+        /* ── Tab Switcher ── */
+        .tab-switcher {
+            display: inline-flex;
+            background: var(--charcoal);
+            border-radius: 50px;
+            padding: 4px;
+            gap: 0;
+            margin: 0 auto 3rem;
+        }
+        .tab-btn {
+            padding: 0.75rem 2rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: rgba(250,248,244,0.5);
+        }
+        .tab-btn.active {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 2px 12px rgba(184,150,90,0.3);
+        }
+
         /* ── Tarifs ── */
         .tarifs-grid {
             display: grid;
@@ -854,6 +883,8 @@
             .benefit-card:nth-child(3), .benefit-card:nth-child(4) { border-bottom: none; }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
             .tarifs-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .tab-switcher { width: 100%; }
+            .tab-btn { flex: 1; padding: 0.75rem 1rem; font-size: 0.6rem; }
             .portfolio-strip { grid-template-columns: 1fr; }
             .portfolio-img { min-height: 320px; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1147,18 +1178,19 @@
 
                 <!-- Tab switcher -->
                 <div style="display:flex;justify-content:center;margin-bottom:3rem">
-                    <div style="display:inline-flex;background:#1C1915;border-radius:50px;padding:4px;gap:0">
-                        <button @click="tab='part'" :style="tab==='part' ? 'background:#B8965A;color:#fff;box-shadow:0 2px 12px rgba(184,150,90,0.3)' : 'background:transparent;color:rgba(250,248,244,0.5)'" style="padding:0.75rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.3s ease">
-                            <i class="fas fa-heart" style="margin-right:0.5rem;font-size:0.6rem"></i> Particulier
-                        </button>
-                        <button @click="tab='pro'" :style="tab==='pro' ? 'background:#B8965A;color:#fff;box-shadow:0 2px 12px rgba(184,150,90,0.3)' : 'background:transparent;color:rgba(250,248,244,0.5)'" style="padding:0.75rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.3s ease">
+                    <div class="tab-switcher">
+                        <button @click="tab='pro'" class="tab-btn" :class="tab==='pro' && 'active'">
                             <i class="fas fa-briefcase" style="margin-right:0.5rem;font-size:0.6rem"></i> Professionnel
+                        </button>
+                        <button @click="tab='part'" class="tab-btn" :class="tab==='part' && 'active'">
+                            <i class="fas fa-heart" style="margin-right:0.5rem;font-size:0.6rem"></i> Particulier
                         </button>
                     </div>
                 </div>
 
                 <!-- PARTICULIER -->
                 <div x-show="tab==='part'" x-transition>
+                    <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">particuliers</strong> — site d'invitation de mariage, célébration...</p>
                     <div class="tarifs-grid">
                         <!-- Essentiel -->
                         <div class="tarif-card">
@@ -1175,9 +1207,7 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Domaine personnalisé</li>
                             </ul>
-                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">
-                                Demander un devis
-                            </a>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
 
                         <!-- Complet -->
@@ -1197,8 +1227,8 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Plan d'accès</li>
                             </ul>
                             <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-                                class="btn-primary-light" style="width:100%;justify-content:center">
-                                Choisir Complet
+                                class="btn-primary" style="width:100%;justify-content:center">
+                                Démarrer maintenant <i class="fas fa-arrow-right" style="margin-left:0.5rem;font-size:0.6rem"></i>
                             </button>
                         </div>
 
@@ -1217,15 +1247,14 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Design premium</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Musique & animations</li>
                             </ul>
-                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">
-                                Demander un devis
-                            </a>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- PROFESSIONNEL -->
                 <div x-show="tab==='pro'" x-cloak x-transition>
+                    <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">prestataires événementiels</strong> — site d'invitation de mariage, célébration...</p>
                     <div class="tarifs-grid">
                         <!-- Essentiel -->
                         <div class="tarif-card">
@@ -1244,14 +1273,12 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Hébergement 1 an inclus</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Certificat SSL</li>
                             </ul>
-                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">
-                                Demander un devis
-                            </a>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
 
                         <!-- Pro -->
                         <div class="tarif-card featured">
-                            <div class="tarif-badge">Populaire</div>
+                            <div class="tarif-badge">Le plus choisi</div>
                             <div class="tarif-name">Pro</div>
                             <div class="tarif-price">2 000<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></div>
                             <div class="tarif-price-note">à partir de &bull; paiement unique</div>
@@ -1269,8 +1296,8 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Formation administration</li>
                             </ul>
                             <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-                                class="btn-primary-light" style="width:100%;justify-content:center">
-                                Choisir Pro
+                                class="btn-primary" style="width:100%;justify-content:center">
+                                Démarrer maintenant <i class="fas fa-arrow-right" style="margin-left:0.5rem;font-size:0.6rem"></i>
                             </button>
                         </div>
 
@@ -1292,9 +1319,7 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Accompagnement SEO 3 mois</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Support prioritaire 6 mois</li>
                             </ul>
-                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">
-                                Demander un devis
-                            </a>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
                     </div>
                 </div>
