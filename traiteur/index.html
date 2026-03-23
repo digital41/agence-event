@@ -1052,75 +1052,146 @@
         </section>
 
         <!-- TARIFS -->
-        <section id="tarifs" class="section section-surface" aria-label="Tarifs création site web traiteur">
+        <section id="tarifs" class="section section-surface" x-data="{ tab: 'part' }" aria-label="Tarifs création site web traiteur">
             <div class="container">
-                <div style="margin-bottom:3.5rem">
+                <div style="margin-bottom:2rem">
                     <p class="section-eyebrow">Tarifs transparents</p>
                     <h2 class="section-title">Un investissement <em class="serif" style="font-style:italic;color:var(--gold)">rentable dès le premier devis.</em></h2>
-                    <p class="section-subtitle">Un seul client supplémentaire par mois couvre votre investissement. Sans abonnement caché.</p>
+                    <p class="section-subtitle">Particulier ou professionnel, nous avons l'offre qu'il vous faut. Sans abonnement caché.</p>
                 </div>
 
-                <div class="tarifs-grid">
-                    <!-- Essentiel -->
-                    <div class="tarif-card">
-                        <p class="tarif-name">Essentiel</p>
-                        <p class="tarif-price"><sup>&euro;</sup>1 500</p>
-                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
-                        <p class="tarif-desc">La vitrine professionnelle pour présenter votre activité de traiteur et recevoir vos premières demandes.</p>
-                        <ul class="tarif-features">
-                            <li class="tarif-feature"><i class="fas fa-check"></i> 5 pages sur-mesure</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Présentation menus &amp; formules</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire de contact &amp; devis</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Galerie photos optimisée</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> SEO de base</li>
-                        </ul>
-                        <a href="/contact/"
-                            class="btn-outline" style="width:100%;justify-content:center"> Demander un devis</a>
-                    </div>
-
-                    <!-- Pro — Featured -->
-                    <div class="tarif-card featured">
-                        <div class="tarif-badge">Le plus choisi</div>
-                        <p class="tarif-name">Pro</p>
-                        <p class="tarif-price"><sup>&euro;</sup>2 000</p>
-                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
-                        <p class="tarif-desc">Le site complet avec menu interactif, espace admin et formulaire de devis avancé pour votre activité traiteur.</p>
-                        <ul class="tarif-features">
-                            <li class="tarif-feature"><i class="fas fa-check"></i> 10 pages + galerie photos</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Carte / menu interactif modifiable</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire devis avec choix menus</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Panneau d'administration</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Avis clients intégrés</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> SEO avancé + Google Maps</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Formation 1h + 30j support</li>
-                        </ul>
-                        <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-                            class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
-                            Choisir Pro
+                <!-- Tab switcher -->
+                <div style="display:flex;justify-content:center;margin-bottom:3rem">
+                    <div style="display:inline-flex;background:#1C1915;border-radius:50px;padding:4px;gap:0">
+                        <button @click="tab='part'" :style="tab==='part' ? 'background:#B8965A;color:#fff;box-shadow:0 2px 12px rgba(184,150,90,0.3)' : 'background:transparent;color:rgba(250,248,244,0.5)'" style="padding:0.75rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.3s ease">
+                            <i class="fas fa-heart" style="margin-right:0.5rem;font-size:0.6rem"></i> Particulier
+                        </button>
+                        <button @click="tab='pro'" :style="tab==='pro' ? 'background:#B8965A;color:#fff;box-shadow:0 2px 12px rgba(184,150,90,0.3)' : 'background:transparent;color:rgba(250,248,244,0.5)'" style="padding:0.75rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.3s ease">
+                            <i class="fas fa-briefcase" style="margin-right:0.5rem;font-size:0.6rem"></i> Professionnel
                         </button>
                     </div>
+                </div>
 
-                    <!-- Premium -->
-                    <div class="tarif-card">
-                        <p class="tarif-name">Premium</p>
-                        <p class="tarif-price"><sup>&euro;</sup>2 500</p>
-                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
-                        <p class="tarif-desc">La solution complète avec application de devis avancée, calendrier et automatisations pour traiteurs ambitieux.</p>
-                        <ul class="tarif-features">
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Pages illimitées</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Application devis multi-formules</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Calendrier de disponibilités</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Carte interactive avec filtres</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Automatisation email &amp; relances</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Blog SEO intégré</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Analytics &amp; tableau de bord</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Support prioritaire 60 jours</li>
-                        </ul>
-                        <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-                            class="btn-outline" style="width:100%;justify-content:center">
-                            Choisir Premium
-                        </button>
+                <!-- PARTICULIER -->
+                <div x-show="tab==='part'" x-transition>
+                    <div class="tarifs-grid">
+                        <!-- Essentiel -->
+                        <div class="tarif-card">
+                            <p class="tarif-name">Essentiel</p>
+                            <p class="tarif-price">460<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
+                            <p class="tarif-desc">Le site vitrine traiteur élégant pour présenter vos menus et recevoir vos premières demandes.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Site one-page menu & prestations</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Galerie plats</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Domaine personnalisé</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire contact</li>
+                            </ul>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                        </div>
+
+                        <!-- Complet -->
+                        <div class="tarif-card featured">
+                            <div class="tarif-badge">Le plus choisi</div>
+                            <p class="tarif-name">Complet</p>
+                            <p class="tarif-price">650<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
+                            <p class="tarif-desc">Le site complet avec carte interactive et galerie immersive pour vos clients.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Multi-pages sur-mesure</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Carte interactive</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Galerie événements</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Avis clients</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Plan d'accès</li>
+                            </ul>
+                            <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                                class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
+                                Choisir Complet
+                            </button>
+                        </div>
+
+                        <!-- Premium -->
+                        <div class="tarif-card">
+                            <p class="tarif-name">Premium</p>
+                            <p class="tarif-price">770<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
+                            <p class="tarif-desc">L'expérience digitale complète avec espace admin pour gérer vos menus en toute autonomie.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Complet +</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Panneau admin</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Gestion menus en ligne</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Design premium</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Réservation</li>
+                            </ul>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROFESSIONNEL -->
+                <div x-show="tab==='pro'" x-cloak x-transition>
+                    <div class="tarifs-grid">
+                        <!-- Essentiel -->
+                        <div class="tarif-card">
+                            <p class="tarif-name">Essentiel</p>
+                            <p class="tarif-price">1 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">à partir de &bull; paiement unique</p>
+                            <p class="tarif-desc">La vitrine professionnelle pour présenter votre activité de traiteur et recevoir vos premières demandes.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> 5 pages sur-mesure</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Présentation menus &amp; formules</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire de contact &amp; devis</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Galerie photos optimisée</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> SEO de base</li>
+                            </ul>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                        </div>
+
+                        <!-- Pro -->
+                        <div class="tarif-card featured">
+                            <div class="tarif-badge">Le plus choisi</div>
+                            <p class="tarif-name">Pro</p>
+                            <p class="tarif-price">2 000<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">à partir de &bull; paiement unique</p>
+                            <p class="tarif-desc">Le site complet avec menu interactif, espace admin et formulaire de devis avancé pour votre activité traiteur.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> 10 pages + galerie photos</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Carte / menu interactif modifiable</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire devis avec choix menus</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Panneau d'administration</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Avis clients intégrés</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> SEO avancé + Google Maps</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Formation 1h + 30j support</li>
+                            </ul>
+                            <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                                class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
+                                Choisir Pro
+                            </button>
+                        </div>
+
+                        <!-- Premium -->
+                        <div class="tarif-card">
+                            <p class="tarif-name">Premium</p>
+                            <p class="tarif-price">2 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">à partir de &bull; paiement unique</p>
+                            <p class="tarif-desc">La solution complète avec application de devis avancée, calendrier et automatisations pour traiteurs ambitieux.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Pages illimitées</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Application devis multi-formules</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Calendrier de disponibilités</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Carte interactive avec filtres</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Automatisation email &amp; relances</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Blog SEO intégré</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Analytics &amp; tableau de bord</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Support prioritaire 60 jours</li>
+                            </ul>
+                            <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                                class="btn-outline" style="width:100%;justify-content:center">
+                                Choisir Premium
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
