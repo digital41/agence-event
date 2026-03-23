@@ -529,39 +529,84 @@
 
         .process-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 
+        /* ── Tab Switcher ── */
+        .tab-switcher {
+            display: inline-flex;
+            background: var(--charcoal);
+            border-radius: 50px;
+            padding: 4px;
+            gap: 0;
+            margin: 0 auto 3rem;
+        }
+        .tab-btn {
+            padding: 0.75rem 2rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: rgba(250,248,244,0.5);
+        }
+        .tab-btn.active {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 2px 12px rgba(184,150,90,0.3);
+        }
+
         /* ── Tarifs ── */
         .tarifs-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
+            align-items: start;
         }
 
         .tarif-card {
             padding: 2.5rem;
             border: 1px solid var(--gold-pale);
+            border-radius: 16px;
             position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tarif-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
         }
         .tarif-card.featured {
             border-color: var(--gold);
             background: var(--charcoal);
             color: var(--cream);
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .tarif-card.featured:hover {
+            transform: scale(1.03) translateY(-4px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.2);
         }
         .tarif-card.featured .tarif-name { color: var(--gold-light); }
         .tarif-card.featured .tarif-desc { color: rgba(250,248,244,0.6); }
-        .tarif-card.featured .tarif-feature { color: rgba(250,248,244,0.8); border-color: rgba(212,175,110,0.2); }
+        .tarif-card.featured .tarif-feature { color: rgba(250,248,244,0.8); border-color: rgba(212,175,110,0.15); }
         .tarif-card.featured .tarif-feature i { color: var(--gold); }
 
         .tarif-badge {
             position: absolute;
-            top: -1px;
-            right: 2rem;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
             background: var(--gold);
             color: var(--white);
             font-size: 0.6rem;
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            padding: 0.3rem 0.75rem;
+            padding: 0.35rem 1.25rem;
+            border-radius: 50px;
+            white-space: nowrap;
         }
 
         .tarif-name {
@@ -575,7 +620,7 @@
 
         .tarif-price {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 600;
             color: var(--charcoal);
             line-height: 1;
@@ -584,7 +629,7 @@
         .tarif-card.featured .tarif-price { color: var(--white); }
         .tarif-card.featured .tarif-price span { color: rgba(250,248,244,0.5) !important; }
 
-        .tarif-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 0.4rem; }
+        .tarif-price sup { font-size: 1rem; vertical-align: top; margin-right: 2px; }
         .tarif-price-note {
             font-size: 0.75rem;
             color: var(--muted);
@@ -600,19 +645,41 @@
             padding-bottom: 1.75rem;
             border-bottom: 1px solid var(--gold-pale);
         }
-        .tarif-card.featured .tarif-desc { border-color: rgba(212,175,110,0.2); }
+        .tarif-card.featured .tarif-desc { border-color: rgba(212,175,110,0.15); }
 
         .tarif-features { list-style: none; margin-bottom: 2rem; }
         .tarif-feature {
             font-size: 0.85rem;
             color: var(--brown);
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--gold-pale);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(212,175,110,0.12);
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
-        .tarif-feature i { color: var(--gold); font-size: 0.7rem; width: 1rem; }
+        .tarif-feature:last-child { border-bottom: none; }
+        .tarif-feature i { color: var(--gold); font-size: 0.7rem; width: 1rem; flex-shrink: 0; }
+
+        /* Tarif buttons */
+        .tarif-card .btn-outline {
+            border-radius: 50px;
+            padding: 0.85rem 1.75rem;
+            transition: all 0.3s ease;
+        }
+        .tarif-card .btn-primary {
+            border-radius: 50px;
+            padding: 0.85rem 1.75rem;
+            font-size: 0.7rem;
+        }
+        .tarif-card.featured .btn-primary {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(184,150,90,0.35);
+        }
+        .tarif-card.featured .btn-primary:hover {
+            box-shadow: 0 6px 24px rgba(184,150,90,0.5);
+            transform: translateY(-1px);
+        }
 
         /* ── Portfolio ── */
         .portfolio-strip {
@@ -840,6 +907,10 @@
             .hero h1 { font-size: clamp(2rem, 6vw, 3rem); }
             .process-steps { grid-template-columns: repeat(2, 1fr); }
             .tarifs-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .tarif-card.featured { transform: none; }
+            .tarif-card.featured:hover { transform: translateY(-4px); }
+            .tab-switcher { width: 100%; }
+            .tab-btn { flex: 1; padding: 0.75rem 1rem; font-size: 0.6rem; }
             .portfolio-strip { grid-template-columns: 1fr; }
             .portfolio-img { min-height: 280px; }
             .portfolio-content { padding: 2.5rem 2rem; }
@@ -1102,13 +1173,15 @@
                 </div>
 
                 <!-- Tab switcher -->
-                <div style="display:flex;justify-content:center;gap:0;margin-bottom:3rem">
-                    <button @click="tab='pro'" :style="tab==='pro' ? 'background:var(--charcoal);color:var(--cream)' : 'background:transparent;color:var(--brown)'" style="padding:0.85rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--charcoal);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s">
-                        <i class="fas fa-briefcase" style="margin-right:0.5rem;font-size:0.6rem"></i> Professionnel
-                    </button>
-                    <button @click="tab='part'" :style="tab==='part' ? 'background:var(--charcoal);color:var(--cream)' : 'background:transparent;color:var(--brown)'" style="padding:0.85rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--charcoal);border-left:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s">
-                        <i class="fas fa-heart" style="margin-right:0.5rem;font-size:0.6rem"></i> Particulier
-                    </button>
+                <div style="display:flex;justify-content:center;margin-bottom:3rem">
+                    <div class="tab-switcher">
+                        <button @click="tab='pro'" class="tab-btn" :class="tab==='pro' && 'active'">
+                            <i class="fas fa-briefcase" style="margin-right:0.5rem;font-size:0.6rem"></i> Professionnel
+                        </button>
+                        <button @click="tab='part'" class="tab-btn" :class="tab==='part' && 'active'">
+                            <i class="fas fa-heart" style="margin-right:0.5rem;font-size:0.6rem"></i> Particulier
+                        </button>
+                    </div>
                 </div>
 
                 <!-- PROFESSIONNEL -->
@@ -1117,8 +1190,8 @@
                     <div class="tarifs-grid">
                         <div class="tarif-card">
                             <p class="tarif-name">Essentiel</p>
-                            <p class="tarif-price"><span style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.7rem;font-weight:600;color:var(--muted);letter-spacing:0.05em;margin-bottom:0.25rem">à partir de</span><sup>€</sup>1 500</p>
-                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-price">1 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">La vitrine professionnelle pour démarrer et attirer vos premiers clients en ligne.</p>
                             <ul class="tarif-features">
                                 <li class="tarif-feature"><i class="fas fa-check"></i> 5 pages sur-mesure</li>
@@ -1127,13 +1200,13 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> SEO de base</li>
                             </ul>
-                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
                         <div class="tarif-card featured">
                             <div class="tarif-badge">Le plus choisi</div>
                             <p class="tarif-name">Pro</p>
-                            <p class="tarif-price"><span style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.7rem;font-weight:600;color:var(--muted);letter-spacing:0.05em;margin-bottom:0.25rem">à partir de</span><sup>€</sup>2 000</p>
-                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-price">2 000<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">Le site complet avec administration pour gérer votre contenu en totale autonomie.</p>
                             <ul class="tarif-features">
                                 <li class="tarif-feature"><i class="fas fa-check"></i> 10 pages + blog ou galerie</li>
@@ -1143,14 +1216,14 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Formation admin incluse</li>
                             </ul>
                             <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-                                class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
-                                Démarrer maintenant
+                                class="btn-primary" style="width:100%;justify-content:center">
+                                Démarrer maintenant <i class="fas fa-arrow-right" style="margin-left:0.5rem;font-size:0.6rem"></i>
                             </button>
                         </div>
                         <div class="tarif-card">
                             <p class="tarif-name">Premium</p>
-                            <p class="tarif-price"><span style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.7rem;font-weight:600;color:var(--muted);letter-spacing:0.05em;margin-bottom:0.25rem">à partir de</span><sup>€</sup>2 500</p>
-                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-price">2 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">L'application web complète pour les prestataires qui veulent automatiser et évoluer.</p>
                             <ul class="tarif-features">
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Application web sur-mesure</li>
@@ -1159,7 +1232,7 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Multi-pages illimitées</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Support 3 mois inclus</li>
                             </ul>
-                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
                     </div>
                 </div>
@@ -1170,8 +1243,8 @@
                     <div class="tarifs-grid">
                         <div class="tarif-card">
                             <p class="tarif-name">Essentiel</p>
-                            <p class="tarif-price"><sup>€</sup>460</p>
-                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-price">460<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">Le site d'invitation élégant pour annoncer votre événement et partager les informations essentielles.</p>
                             <ul class="tarif-features">
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Site one-page sur-mesure</li>
@@ -1180,13 +1253,13 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Nom de domaine personnalisé</li>
                             </ul>
-                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
                         <div class="tarif-card featured">
                             <div class="tarif-badge">Le plus choisi</div>
                             <p class="tarif-name">Complet</p>
-                            <p class="tarif-price"><sup>€</sup>650</p>
-                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-price">650<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">Le site d'invitation complet avec RSVP en ligne et galerie immersive pour vos invités.</p>
                             <ul class="tarif-features">
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Multi-pages sur-mesure</li>
@@ -1196,14 +1269,14 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Plan d'accès interactif</li>
                             </ul>
                             <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-                                class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
-                                Démarrer maintenant
+                                class="btn-primary" style="width:100%;justify-content:center">
+                                Démarrer maintenant <i class="fas fa-arrow-right" style="margin-left:0.5rem;font-size:0.6rem"></i>
                             </button>
                         </div>
                         <div class="tarif-card">
                             <p class="tarif-name">Premium</p>
-                            <p class="tarif-price"><sup>€</sup>770</p>
-                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-price">770<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
+                            <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">L'expérience digitale complète avec espace admin pour personnaliser votre site jusqu'au jour J.</p>
                             <ul class="tarif-features">
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Complet +</li>
@@ -1212,7 +1285,7 @@
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Design premium personnalisé</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Musique & animations</li>
                             </ul>
-                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
                     </div>
                 </div>
