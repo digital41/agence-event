@@ -12,14 +12,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
       - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: 148.230.127.222
-          port: 65002
-          username: u234542620_wxTntinyR
-          password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: './*'
-          remote_path: './public_html/'
-          sftpArgs: '-o StrictHostKeyChecking=no'
-          exclude: '.git*,.github'
+        env:
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          lftp -u u234542620_wxTntinyR,"$SFTP_PASSWORD" \
+            -p 65002 \
+            sftp://148.230.127.222 \
+            -e "
+              set sftp:auto-confirm yes;
+              set net:max-retries 3;
+              mirror --reverse --delete \
+                --exclude ^\.git/ \
+                --exclude ^\.github/ \
+                ./ /public_html/;
+              quit
+            "
