@@ -13,18 +13,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: 148.230.127.222
           port: 65002
-          protocol: sftp
           username: u234542620_wxTntinyR
           password: ${{ secrets.SFTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /home/u234542620_wxTntinyR/public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            .github/**
-            node_modules/**
-            README.md
+          local_path: './*'
+          remote_path: '/home/u234542620_wxTntinyR/public_html/'
+          sftpArgs: '-o StrictHostKeyChecking=no'
+          exclude: '.git*,.github'
