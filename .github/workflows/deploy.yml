@@ -28,6 +28,6 @@ jobs:
               mirror --reverse --delete \
                 --exclude ^\.git/ \
                 --exclude ^\.github/ \
-                ./ /public_html/;
+                ./ public_html/;
               quit
             "
