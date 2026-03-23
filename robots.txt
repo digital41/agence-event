@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agence-event.nathanibgui.com/sitemap.xml
