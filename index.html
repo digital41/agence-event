@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agence Web Événementiel & Mariage | agence-event.nathanibgui.com</title>
+    <meta name="description" content="Création de sites web et applications pour prestataires événementiels : mariage, bar mitsvah, traiteur, salle de fête, wedding planner. Sites professionnels avec administration simple. Paris & France.">
+    <meta name="keywords" content="création site web mariage, site web événementiel, site web traiteur, site web bar mitsvah, application web mariage, site wedding planner, agence web événementiel Paris">
+    <meta name="author" content="Nathan Ibgui">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://agence-event.nathanibgui.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agence-event.nathanibgui.com/">
+    <meta property="og:title" content="Agence Web Événementiel & Mariage | Nathan Ibgui">
+    <meta property="og:description" content="Sites web et applications sur-mesure pour prestataires événementiels. Administration simple, galerie photos, formulaire de devis. Paris & France.">
+    <meta property="og:image" content="https://nathanibgui.com/assets/images/nathanibguiProfile-og.jpg">
+    <meta property="og:locale" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agence Web Événementiel & Mariage | Nathan Ibgui">
+    <meta name="twitter:description" content="Sites web et applications sur-mesure pour prestataires événementiels.">
+    <meta name="twitter:image" content="https://nathanibgui.com/assets/images/nathanibguiProfile-og.jpg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "name": "Agence Web Événementiel & Mariage — Nathan Ibgui",
+        "description": "Création de sites web et applications événementielles sur-mesure avec administration simple pour prestataires du mariage et de l'événementiel.",
+        "url": "https://agence-event.nathanibgui.com",
+        "telephone": "+33618852010",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "75 Avenue Jean Jaurès",
+            "addressLocality": "Paris",
+            "postalCode": "75019",
+            "addressCountry": "FR"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Nathan Ibgui",
+            "url": "https://nathanibgui.com",
+            "sameAs": ["https://fr.linkedin.com/in/nathan-ibgui", "https://www.malt.fr/profile/nathanibgui"]
+        },
+        "areaServed": { "@type": "Country", "name": "France" },
+        "sameAs": ["https://nathanibgui.com/solutions/creation-site-web-evenementiel/"]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <script defer src="https://unpkg.com/alpinejs@3.15.8/dist/cdn.min.js"></script>
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --cream:      #FAF8F4;
+            --cream-dark: #F3EFE8;
+            --gold:       #B8965A;
+            --gold-light: #D4AF6E;
+            --gold-pale:  #F0E4CC;
+            --blush:      #E8C4BC;
+            --charcoal:   #1C1915;
+            --brown:      #3D3530;
+            --muted:      #8C8178;
+            --white:      #FFFFFF;
+        }
+
+        html { font-size: 16px; }
+
+        body {
+            background-color: var(--cream);
+            color: var(--charcoal);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        [x-cloak] { display: none !important; }
+
+        /* ── Typography ── */
+        .serif { font-family: 'Playfair Display', Georgia, serif; }
+        .text-gold { color: var(--gold); }
+        .text-muted { color: var(--muted); }
+
+        /* ── Header ── */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+        .site-header.scrolled {
+            background: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184, 150, 90, 0.15);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+        .logo em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--brown);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 0.75rem 1.75rem;
+            border-radius: 2px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: var(--brown); transform: translateY(-1px); }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--charcoal);
+            padding: 0.75rem 1.75rem;
+            border-radius: 2px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { background: var(--gold); color: var(--white); }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            padding-top: 5rem;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 4rem 6rem 4rem;
+            background: var(--cream);
+        }
+
+        .hero-eyebrow {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 2rem;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--muted);
+            max-width: 440px;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--gold-pale);
+        }
+        .hero-stat p:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+        .hero-stat p:last-child {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 0.2rem;
+        }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal);
+        }
+
+        .hero-right-inner {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(28,25,21,0.95) 0%, rgba(28,25,21,0.3) 60%, transparent 100%);
+        }
+
+        .hero-right-img {
+            position: absolute;
+            inset: 0;
+            background:
+                url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=80&auto=format') center/cover no-repeat;
+            opacity: 0.65;
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-badge span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+        }
+        .hero-badge span:last-child {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .hero-caption {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--white);
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+        .hero-caption-sub {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+
+        /* ── Section base ── */
+        .section { padding: 6rem 2rem; }
+        .section-dark { background: var(--charcoal); color: var(--cream); }
+        .section-cream { background: var(--cream); }
+        .section-surface { background: var(--cream-dark); }
+
+        .section-eyebrow {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-eyebrow::before {
+            content: '';
+            display: block;
+            width: 2rem;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+        .section-dark .section-title { color: var(--cream); }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 520px;
+            line-height: 1.7;
+        }
+        .section-dark .section-subtitle { color: rgba(250,248,244,0.6); }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ── Secteurs grid ── */
+        .secteurs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid var(--gold-pale);
+        }
+
+        .secteur-card {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid var(--gold-pale);
+            border-bottom: 1px solid var(--gold-pale);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: background 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .secteur-card:hover { background: var(--cream-dark); }
+        .secteur-card:nth-child(3n) { border-right: none; }
+        .secteur-card:nth-child(4), .secteur-card:nth-child(5), .secteur-card:nth-child(6) { border-bottom: none; }
+
+        .secteur-icon {
+            width: 3rem;
+            height: 3rem;
+            border: 1px solid var(--gold-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .secteur-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .secteur-card p {
+            font-size: 0.875rem;
+            color: var(--muted);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .secteur-link {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .secteur-link i { font-size: 0.6rem; transition: transform 0.2s; }
+        .secteur-card:hover .secteur-link i { transform: translateX(4px); }
+
+        /* ── Process ── */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: var(--gold-pale);
+        }
+
+        .process-step { text-align: center; }
+        .process-num {
+            width: 3rem;
+            height: 3rem;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold);
+            background: var(--cream);
+            position: relative;
+            z-index: 1;
+        }
+        .section-dark .process-num { background: var(--charcoal); color: var(--gold); }
+
+        .process-step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+        .section-dark .process-step h3 { color: var(--cream); }
+
+        .process-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+        /* ── Tarifs ── */
+        .tarifs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tarif-card {
+            padding: 2.5rem;
+            border: 1px solid var(--gold-pale);
+            position: relative;
+        }
+        .tarif-card.featured {
+            border-color: var(--gold);
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+        .tarif-card.featured .tarif-name { color: var(--gold-light); }
+        .tarif-card.featured .tarif-desc { color: rgba(250,248,244,0.6); }
+        .tarif-card.featured .tarif-feature { color: rgba(250,248,244,0.8); border-color: rgba(212,175,110,0.2); }
+        .tarif-card.featured .tarif-feature i { color: var(--gold); }
+
+        .tarif-badge {
+            position: absolute;
+            top: -1px;
+            right: 2rem;
+            background: var(--gold);
+            color: var(--white);
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.75rem;
+        }
+
+        .tarif-name {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .tarif-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        .tarif-card.featured .tarif-price { color: var(--white); }
+
+        .tarif-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 0.4rem; }
+        .tarif-price-note {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+        .tarif-card.featured .tarif-price-note { color: rgba(250,248,244,0.5); }
+
+        .tarif-desc {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.75rem;
+            border-bottom: 1px solid var(--gold-pale);
+        }
+        .tarif-card.featured .tarif-desc { border-color: rgba(212,175,110,0.2); }
+
+        .tarif-features { list-style: none; margin-bottom: 2rem; }
+        .tarif-feature {
+            font-size: 0.85rem;
+            color: var(--brown);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gold-pale);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .tarif-feature i { color: var(--gold); font-size: 0.7rem; width: 1rem; }
+
+        /* ── Portfolio ── */
+        .portfolio-strip {
+            display: grid;
+            grid-template-columns: 5fr 3fr;
+            gap: 0;
+            min-height: 480px;
+        }
+
+        .portfolio-img {
+            background: url('https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=900&q=80&auto=format') center/cover no-repeat;
+            position: relative;
+        }
+
+        .portfolio-content {
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--charcoal);
+        }
+
+        .portfolio-content .section-eyebrow { color: var(--gold-light); }
+        .portfolio-content .section-eyebrow::before { background: var(--gold-light); }
+        .portfolio-content .section-title { color: var(--cream); }
+        .portfolio-content p { color: rgba(250,248,244,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; }
+
+        .portfolio-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(212,175,110,0.3);
+            padding: 0.4rem 0.9rem;
+            border-radius: 1px;
+        }
+
+        /* ── FAQ ── */
+        .faq-list { max-width: 720px; margin: 0 auto; }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gold-pale);
+        }
+
+        .faq-summary {
+            padding: 1.5rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            transition: color 0.2s;
+        }
+        .faq-summary:hover { color: var(--gold); }
+        .faq-summary::-webkit-details-marker { display: none; }
+
+        .faq-icon {
+            width: 1.75rem;
+            height: 1.75rem;
+            border: 1px solid var(--gold-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--gold);
+            font-size: 0.7rem;
+            transition: transform 0.3s;
+        }
+        details[open] .faq-icon { transform: rotate(45deg); }
+
+        .faq-body {
+            padding: 0 0 1.5rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.75;
+            max-width: 580px;
+        }
+
+        /* ── CTA Banner ── */
+        .cta-banner {
+            padding: 6rem 2rem;
+            background: var(--charcoal);
+            text-align: center;
+        }
+        .cta-banner .section-eyebrow { justify-content: center; }
+        .cta-banner .section-eyebrow::before { display: none; }
+        .cta-banner .section-title { color: var(--cream); margin: 0 auto 1rem; }
+
+        .cta-ornament {
+            width: 4rem;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 2rem;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            background: #131008;
+            color: var(--cream);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo { color: var(--cream); font-size: 1.2rem; }
+        .footer-brand p { font-size: 0.85rem; color: rgba(250,248,244,0.5); margin-top: 1rem; line-height: 1.7; }
+
+        .footer-col h4 {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links a {
+            font-size: 0.85rem;
+            color: rgba(250,248,244,0.5);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--cream); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(250,248,244,0.07);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-bottom p { font-size: 0.75rem; color: rgba(250,248,244,0.3); }
+        .footer-bottom a { color: rgba(250,248,244,0.4); text-decoration: none; }
+        .footer-bottom a:hover { color: var(--gold); }
+
+        /* ── WhatsApp ── */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 1.75rem;
+            right: 1.75rem;
+            width: 3.25rem;
+            height: 3.25rem;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+            text-decoration: none;
+            z-index: 90;
+            transition: transform 0.2s;
+        }
+        .whatsapp-btn:hover { transform: scale(1.08); }
+
+        /* ── Mobile menu ── */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--cream);
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            padding: 5rem 2rem 2rem;
+        }
+        .mobile-menu nav a {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            text-decoration: none;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gold-pale);
+        }
+        .mobile-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.75rem;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-right { min-height: 50vh; }
+            .hero-left { padding: 5rem 2rem 3rem; }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .tarifs-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .portfolio-strip { grid-template-columns: 1fr; }
+            .portfolio-img { min-height: 320px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .secteurs-grid { grid-template-columns: 1fr; }
+            .secteur-card:nth-child(3n) { border-right: 1px solid var(--gold-pale); }
+            .secteur-card { border-right: none; }
+            .secteur-card:last-child { border-bottom: none; }
+            .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+            .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .process-steps::before { display: none; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .section { padding: 4rem 1.25rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body x-data="{ mobileMenu: false }">
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header" role="banner">
+        <a href="/" class="logo" aria-label="Agence Event — Accueil">Agence<em>Event</em></a>
+
+        <nav aria-label="Navigation principale">
+            <ul class="nav-links hidden lg:flex">
+                <li><a href="#secteurs">Secteurs</a></li>
+                <li><a href="#process">Notre approche</a></li>
+                <li><a href="#tarifs">Tarifs</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                class="btn-primary hidden sm:inline-flex"
+                aria-label="Prendre rendez-vous">
+                Démarrer mon projet
+            </button>
+            <button @click="mobileMenu = true" class="lg:hidden p-2 text-charcoal"
+                aria-label="Ouvrir le menu" :aria-expanded="mobileMenu.toString()"
+                style="color:var(--charcoal);background:none;border:none;cursor:pointer;font-size:1.2rem">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+        class="mobile-menu" @click.away="mobileMenu = false">
+        <button class="mobile-close" @click="mobileMenu = false" aria-label="Fermer le menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav>
+            <a href="#secteurs" @click="mobileMenu=false">Secteurs</a>
+            <a href="#process" @click="mobileMenu=false">Notre approche</a>
+            <a href="#tarifs" @click="mobileMenu=false">Tarifs</a>
+            <a href="#portfolio" @click="mobileMenu=false">Portfolio</a>
+            <a href="#faq" @click="mobileMenu=false">FAQ</a>
+        </nav>
+        <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});mobileMenu=false;"
+            class="btn-primary mt-8" style="justify-content:center">
+            Démarrer mon projet
+        </button>
+    </div>
+
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="hero" aria-label="Agence web événementiel et mariage">
+            <div class="hero-left">
+                <div class="hero-eyebrow">Agence Web Événementiel &amp; Mariage</div>
+
+                <h1>
+                    Votre présence digitale,<br>
+                    à la hauteur de vos <em>événements.</em>
+                </h1>
+
+                <p class="hero-desc">
+                    Sites web et applications sur-mesure pour les prestataires de l'événementiel.
+                    Mariage, bar mitsvah, traiteur, salle de fête — une vitrine professionnelle
+                    qui convertit vos visiteurs en clients, livrée en 3 semaines.
+                </p>
+
+                <div class="hero-actions">
+                    <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                        class="btn-primary">
+                        Démarrer mon projet <i class="fas fa-arrow-right" style="font-size:0.65rem"></i>
+                    </button>
+                    <a href="#secteurs" class="btn-outline">Voir nos réalisations</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <p>3 sem.</p>
+                        <p>Délai moyen</p>
+                    </div>
+                    <div class="hero-stat">
+                        <p>100%</p>
+                        <p>Sur-mesure</p>
+                    </div>
+                    <div class="hero-stat">
+                        <p>×3</p>
+                        <p>Demandes de devis</p>
+                    </div>
+                    <div class="hero-stat">
+                        <p>0</p>
+                        <p>Technique requis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-right" aria-hidden="true">
+                <div class="hero-right-img"></div>
+                <div class="hero-badge">
+                    <span>Paris</span>
+                    <span>& France</span>
+                </div>
+                <div class="hero-right-inner">
+                    <p class="hero-caption">"Un site aussi beau que le jour J."</p>
+                    <p class="hero-caption-sub">dvora.nathanibgui.com — Site Mariage</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTEURS -->
+        <section id="secteurs" class="section section-surface" aria-label="Secteurs événementiels couverts">
+            <div class="container">
+                <div style="margin-bottom:3.5rem">
+                    <p class="section-eyebrow">Nos spécialités</p>
+                    <h2 class="section-title">Un site taillé pour <em class="serif" style="font-style:italic;color:var(--gold)">votre métier.</em></h2>
+                    <p class="section-subtitle">Chaque secteur a ses codes, ses clients, ses attentes. Nous créons des expériences digitales adaptées à votre univers.</p>
+                </div>
+
+                <div class="secteurs-grid">
+                    <a href="/mariage/" class="secteur-card">
+                        <div class="secteur-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Mariage</h3>
+                        <p>Galerie photos immersive, formulaire de contact personnalisé, section budget, témoignages couples.</p>
+                        <span class="secteur-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="/bar-mitsvah/" class="secteur-card">
+                        <div class="secteur-icon"><i class="fas fa-star-of-david"></i></div>
+                        <h3>Bar & Bat Mitsvah</h3>
+                        <p>Site dédié aux célébrations et réceptions, programme, galerie, espace devis interactif.</p>
+                        <span class="secteur-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="/traiteur/" class="secteur-card">
+                        <div class="secteur-icon"><i class="fas fa-utensils"></i></div>
+                        <h3>Traiteur</h3>
+                        <p>Menu en ligne, galerie buffets, outil de demande de devis, gestion des disponibilités.</p>
+                        <span class="secteur-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="/salle-de-fete/" class="secteur-card">
+                        <div class="secteur-icon"><i class="fas fa-building"></i></div>
+                        <h3>Salle de fête</h3>
+                        <p>Visite virtuelle, calendrier des disponibilités, tarifs, formulaire de réservation en ligne.</p>
+                        <span class="secteur-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="/anniversaire/" class="secteur-card">
+                        <div class="secteur-icon"><i class="fas fa-champagne-glasses"></i></div>
+                        <h3>Anniversaire & Réceptions</h3>
+                        <p>Organisation de soirées, galerie événements passés, packages, prise de contact rapide.</p>
+                        <span class="secteur-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="/contact/" class="secteur-card">
+                        <div class="secteur-icon"><i class="fas fa-ellipsis"></i></div>
+                        <h3>Autre événement</h3>
+                        <p>Wedding planner, photographe, DJ, fleuriste — tout prestataire de l'événementiel peut bénéficier d'un site sur-mesure.</p>
+                        <span class="secteur-link">Nous contacter <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section id="process" class="section section-dark" aria-label="Notre méthode de travail">
+            <div class="container">
+                <div style="text-align:center;margin-bottom:4rem">
+                    <p class="section-eyebrow" style="justify-content:center">
+                        <span style="width:2rem;height:1px;background:var(--gold);display:inline-block;margin-right:0.75rem"></span>
+                        Notre méthode
+                    </p>
+                    <h2 class="section-title" style="color:var(--cream)">De l'idée à la mise en ligne<br><em class="serif" style="font-style:italic;color:var(--gold)">en 4 étapes simples.</em></h2>
+                </div>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="process-num">01</div>
+                        <h3>Découverte</h3>
+                        <p>Appel de 30 min pour comprendre votre activité, vos clients et vos objectifs. Sans engagement.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num">02</div>
+                        <h3>Design & Structure</h3>
+                        <p>Maquette sur-mesure adaptée à votre univers et validée avec vous avant tout développement.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num">03</div>
+                        <h3>Développement</h3>
+                        <p>Site rapide, responsive, SEO-optimisé avec panneau d'administration simple — aucune compétence technique requise.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num">04</div>
+                        <h3>Livraison & Suivi</h3>
+                        <p>Mise en ligne, formation de 1h sur votre espace admin, et support pendant 30 jours inclus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TARIFS -->
+        <section id="tarifs" class="section section-cream" aria-label="Nos tarifs de création de site événementiel">
+            <div class="container">
+                <div style="margin-bottom:3.5rem">
+                    <p class="section-eyebrow">Tarifs transparents</p>
+                    <h2 class="section-title">Un investissement <em class="serif" style="font-style:italic;color:var(--gold)">rentable dès le premier devis.</em></h2>
+                    <p class="section-subtitle">Un seul client supplémentaire par mois couvre votre investissement. Sans abonnement caché.</p>
+                </div>
+
+                <div class="tarifs-grid">
+                    <!-- Essentiel -->
+                    <div class="tarif-card">
+                        <p class="tarif-name">Essentiel</p>
+                        <p class="tarif-price"><sup>€</sup>800</p>
+                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                        <p class="tarif-desc">La vitrine professionnelle pour démarrer et attirer vos premiers clients en ligne.</p>
+                        <ul class="tarif-features">
+                            <li class="tarif-feature"><i class="fas fa-check"></i> 5 pages sur-mesure</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire de contact & devis</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Galerie photos optimisée</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> SEO de base</li>
+                        </ul>
+                        <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                            class="btn-outline" style="width:100%;justify-content:center">
+                            Commencer
+                        </button>
+                    </div>
+
+                    <!-- Pro — Featured -->
+                    <div class="tarif-card featured">
+                        <div class="tarif-badge">Le plus choisi</div>
+                        <p class="tarif-name">Pro</p>
+                        <p class="tarif-price"><sup>€</sup>1 500</p>
+                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                        <p class="tarif-desc">Le site complet avec administration pour gérer votre contenu en totale autonomie.</p>
+                        <ul class="tarif-features">
+                            <li class="tarif-feature"><i class="fas fa-check"></i> 10 pages + blog ou galerie</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Panneau d'administration</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Calendrier de disponibilités</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> SEO avancé + Google Maps</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Formation admin incluse</li>
+                        </ul>
+                        <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                            class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
+                            Démarrer maintenant
+                        </button>
+                    </div>
+
+                    <!-- Premium -->
+                    <div class="tarif-card">
+                        <p class="tarif-name">Premium</p>
+                        <p class="tarif-price"><sup>€</sup>2 500</p>
+                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                        <p class="tarif-desc">L'application web complète pour les prestataires qui veulent automatiser et évoluer.</p>
+                        <ul class="tarif-features">
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Application web sur-mesure</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Réservation en ligne avec paiement</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Gestion clients & devis</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Multi-pages illimitées</li>
+                            <li class="tarif-feature"><i class="fas fa-check"></i> Support 3 mois inclus</li>
+                        </ul>
+                        <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                            class="btn-outline" style="width:100%;justify-content:center">
+                            Nous contacter
+                        </button>
+                    </div>
+                </div>
+
+                <p style="text-align:center;margin-top:2rem;font-size:0.8rem;color:var(--muted)">
+                    <i class="fas fa-shield-halved" style="color:var(--gold);margin-right:0.5rem"></i>
+                    Devis gratuit et sans engagement — réponse sous 24h
+                </p>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio" class="portfolio-strip" aria-label="Exemple de réalisation">
+            <div class="portfolio-img" role="img" aria-label="Site web mariage Dvora"></div>
+            <div class="portfolio-content">
+                <p class="section-eyebrow">Réalisation</p>
+                <h2 class="section-title" style="font-size:1.75rem">dvora.nathanibgui.com</h2>
+                <p>Site vitrine pour un prestataire mariage : galerie immersive, formulaire de contact, témoignages et intégration agenda. Conçu pour convertir les couples en demandes de devis.</p>
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem">
+                    <span class="portfolio-tag"><i class="fas fa-heart" style="font-size:0.6rem"></i> Mariage</span>
+                    <span class="portfolio-tag"><i class="fas fa-bolt" style="font-size:0.6rem"></i> 3 semaines</span>
+                    <span class="portfolio-tag"><i class="fas fa-mobile" style="font-size:0.6rem"></i> 100% Mobile</span>
+                </div>
+                <a href="https://dvora.nathanibgui.com" target="_blank" rel="noopener" class="btn-primary" style="background:var(--gold);border:none;align-self:flex-start">
+                    Visiter le site <i class="fas fa-arrow-up-right-from-square" style="font-size:0.6rem"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section section-cream" aria-label="Questions fréquentes">
+            <div class="container">
+                <div style="text-align:center;margin-bottom:3.5rem">
+                    <p class="section-eyebrow" style="justify-content:center">
+                        <span style="width:2rem;height:1px;background:var(--gold);display:inline-block;margin-right:0.75rem"></span>
+                        Questions fréquentes
+                    </p>
+                    <h2 class="section-title">Tout ce que vous voulez <em class="serif" style="font-style:italic;color:var(--gold)">savoir.</em></h2>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-summary">
+                            Combien de temps faut-il pour créer mon site ?
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </summary>
+                        <p class="faq-body">Pour un site Essentiel ou Pro, le délai moyen est de 2 à 3 semaines à partir de la validation du devis. Ce délai comprend la phase de design, le développement et les allers-retours de validation avec vous.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">
+                            Pourrai-je mettre à jour le site moi-même ?
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </summary>
+                        <p class="faq-body">Oui, les offres Pro et Premium incluent un panneau d'administration simple, sans compétences techniques requises. Vous pouvez modifier vos textes, photos, tarifs et disponibilités en quelques clics depuis votre téléphone.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">
+                            Proposez-vous l'hébergement et le nom de domaine ?
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </summary>
+                        <p class="faq-body">L'hébergement est inclus la première année dans tous nos forfaits. Pour le nom de domaine (.fr, .com, etc.), nous vous guidons dans son acquisition ou nous le gérons pour vous, selon vos préférences.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">
+                            Mon site sera-t-il visible sur Google ?
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </summary>
+                        <p class="faq-body">Oui, tous nos sites sont optimisés pour le référencement naturel (SEO) : balises structurées, vitesse de chargement, compatibilité mobile et indexation Google inclus. L'offre Pro et Premium intègre un SEO local avancé pour votre ville et région.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary">
+                            Puis-je voir d'autres exemples de sites réalisés ?
+                            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                        </summary>
+                        <p class="faq-body">Absolument. Vous pouvez visiter <a href="https://dvora.nathanibgui.com" target="_blank" rel="noopener" style="color:var(--gold)">dvora.nathanibgui.com</a> comme exemple de site mariage. D'autres réalisations sont disponibles sur <a href="https://nathanibgui.com" target="_blank" rel="noopener" style="color:var(--gold)">nathanibgui.com</a>. N'hésitez pas à nous contacter pour en discuter.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="cta-banner" aria-label="Appel à l'action">
+            <div class="container">
+                <p class="section-eyebrow">Prêt à commencer ?</p>
+                <div class="cta-ornament"></div>
+                <h2 class="section-title" style="color:var(--cream);max-width:640px;margin:0 auto 1.5rem">
+                    Un appel de 30 min<br>
+                    <em class="serif" style="font-style:italic;color:var(--gold)">change tout.</em>
+                </h2>
+                <p style="color:rgba(250,248,244,0.5);font-size:0.95rem;margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto">
+                    Discutons de votre projet, de vos clients, de vos ambitions. C'est gratuit, sans engagement, et ça ne prend que 30 minutes.
+                </p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+                    <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                        class="btn-primary" style="background:var(--gold);border:none;padding:1rem 2.5rem">
+                        Prendre rendez-vous <i class="fas fa-calendar-check" style="font-size:0.65rem"></i>
+                    </button>
+                    <a href="tel:+33618852010" class="btn-outline" style="border-color:rgba(212,175,110,0.4);color:var(--cream);padding:1rem 2.5rem">
+                        <i class="fas fa-phone" style="font-size:0.65rem"></i> 06 18 85 20 10
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo" style="color:var(--cream)">Agence<em>Event</em></a>
+                    <p>Création de sites web et applications pour les prestataires de l'événementiel. Mariage, bar mitsvah, traiteur, salle de fête — votre vitrine digitale, prête en 3 semaines.</p>
+                    <p style="margin-top:1rem;font-size:0.75rem;color:rgba(250,248,244,0.3)">
+                        75 Avenue Jean Jaurès, 75019 Paris<br>
+                        <a href="tel:+33618852010" style="color:rgba(250,248,244,0.3);text-decoration:none">06 18 85 20 10</a>
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Secteurs</h4>
+                    <ul class="footer-links">
+                        <li><a href="/mariage/">Mariage</a></li>
+                        <li><a href="/bar-mitsvah/">Bar &amp; Bat Mitsvah</a></li>
+                        <li><a href="/traiteur/">Traiteur</a></li>
+                        <li><a href="/salle-de-fete/">Salle de fête</a></li>
+                        <li><a href="/anniversaire/">Anniversaire</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#tarifs">Site Essentiel — 800€</a></li>
+                        <li><a href="#tarifs">Site Pro — 1 500€</a></li>
+                        <li><a href="#tarifs">App Premium — 2 500€</a></li>
+                        <li><a href="https://nathanibgui.com/solutions/creation-site-web-evenementiel/" target="_blank" rel="noopener">En savoir plus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nathan Ibgui</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://nathanibgui.com" target="_blank" rel="noopener">nathanibgui.com</a></li>
+                        <li><a href="https://dvora.nathanibgui.com" target="_blank" rel="noopener">Exemple : Dvora</a></li>
+                        <li><a href="https://fr.linkedin.com/in/nathan-ibgui" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://www.malt.fr/profile/nathanibgui" target="_blank" rel="noopener">Malt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AgenceEvent — Nathan Ibgui. Tous droits réservés.</p>
+                <div style="display:flex;gap:1.5rem">
+                    <a href="https://nathanibgui.com/mentions-legales/">Mentions légales</a>
+                    <a href="https://nathanibgui.com/rgpd/">RGPD</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/33618852010?text=Bonjour%20Nathan%2C%20je%20souhaite%20un%20site%20web%20pour%20mon%20activité%20événementielle."
+        class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 40);
+        }, { passive: true });
+    </script>
+
+</body>
+</html>
