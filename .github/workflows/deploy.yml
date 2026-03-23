@@ -15,6 +15,20 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
+      - name: Debug - list remote directories
+        env:
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          lftp -u u234542620_wxTntinyR,"$SFTP_PASSWORD" \
+            -p 65002 \
+            sftp://148.230.127.222 \
+            -e "
+              set sftp:auto-confirm yes;
+              ls;
+              ls public_html/ || echo 'public_html not found';
+              quit
+            "
+
       - name: Deploy via SFTP
         env:
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
@@ -25,7 +39,7 @@ jobs:
             -e "
               set sftp:auto-confirm yes;
               set net:max-retries 3;
-              mirror --reverse --delete \
+              mirror --reverse --delete --verbose \
                 --exclude ^\.git/ \
                 --exclude ^\.github/ \
                 ./ public_html/;
