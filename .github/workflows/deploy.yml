@@ -20,6 +20,6 @@ jobs:
           username: u234542620_wxTntinyR
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: './*'
-          remote_path: '/home/u234542620_wxTntinyR/public_html/'
+          remote_path: './public_html/'
           sftpArgs: '-o StrictHostKeyChecking=no'
           exclude: '.git*,.github'
