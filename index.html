@@ -1092,67 +1092,127 @@
         </section>
 
         <!-- TARIFS -->
-        <section id="tarifs" class="section section-cream" aria-label="Nos tarifs de création de site événementiel">
+        <section id="tarifs" class="section section-cream" x-data="{ tab: 'pro' }" aria-label="Nos tarifs de création de site événementiel">
             <div class="container">
-                <div style="margin-bottom:3.5rem" class="fade-in">
+                <div style="margin-bottom:2rem" class="fade-in">
                     <p class="section-eyebrow">Tarifs transparents</p>
-                    <h2 class="section-title">Un investissement <em class="serif" style="font-style:italic;color:var(--gold)">rentable dès le premier devis.</em></h2>
-                    <p class="section-subtitle">Un seul client supplémentaire par mois couvre votre investissement. Sans abonnement caché.</p>
+                    <h2 class="section-title">Des offres adaptées <em class="serif" style="font-style:italic;color:var(--gold)">à chaque besoin.</em></h2>
+                    <p class="section-subtitle">Professionnel de l'événementiel ou particulier préparant votre célébration — nous avons l'offre qu'il vous faut.</p>
                 </div>
 
-                <div class="tarifs-grid">
-                    <!-- Essentiel -->
-                    <div class="tarif-card">
-                        <p class="tarif-name">Essentiel</p>
-                        <p class="tarif-price"><sup>€</sup>800</p>
-                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
-                        <p class="tarif-desc">La vitrine professionnelle pour démarrer et attirer vos premiers clients en ligne.</p>
-                        <ul class="tarif-features">
-                            <li class="tarif-feature"><i class="fas fa-check"></i> 5 pages sur-mesure</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire de contact & devis</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Galerie photos optimisée</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> SEO de base</li>
-                        </ul>
-                        <a href="/contact/"
-                            class="btn-outline" style="width:100%;justify-content:center"> Demander un devis</a>
-                    </div>
+                <!-- Tab switcher -->
+                <div style="display:flex;justify-content:center;gap:0;margin-bottom:3rem">
+                    <button @click="tab='pro'" :style="tab==='pro' ? 'background:var(--charcoal);color:var(--cream)' : 'background:transparent;color:var(--brown)'" style="padding:0.85rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--charcoal);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s">
+                        <i class="fas fa-briefcase" style="margin-right:0.5rem;font-size:0.6rem"></i> Professionnel
+                    </button>
+                    <button @click="tab='part'" :style="tab==='part' ? 'background:var(--charcoal);color:var(--cream)' : 'background:transparent;color:var(--brown)'" style="padding:0.85rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--charcoal);border-left:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s">
+                        <i class="fas fa-heart" style="margin-right:0.5rem;font-size:0.6rem"></i> Particulier
+                    </button>
+                </div>
 
-                    <!-- Pro — Featured -->
-                    <div class="tarif-card featured">
-                        <div class="tarif-badge">Le plus choisi</div>
-                        <p class="tarif-name">Pro</p>
-                        <p class="tarif-price"><sup>€</sup>1 500</p>
-                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
-                        <p class="tarif-desc">Le site complet avec administration pour gérer votre contenu en totale autonomie.</p>
-                        <ul class="tarif-features">
-                            <li class="tarif-feature"><i class="fas fa-check"></i> 10 pages + blog ou galerie</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Panneau d'administration</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Calendrier de disponibilités</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> SEO avancé + Google Maps</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Formation admin incluse</li>
-                        </ul>
-                        <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-                            class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
-                            Démarrer maintenant
-                        </button>
+                <!-- PROFESSIONNEL -->
+                <div x-show="tab==='pro'" x-transition>
+                    <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">prestataires événementiels</strong> — traiteur, salle de fête, wedding planner, photographe...</p>
+                    <div class="tarifs-grid">
+                        <div class="tarif-card">
+                            <p class="tarif-name">Essentiel</p>
+                            <p class="tarif-price"><sup>€</sup>800</p>
+                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-desc">La vitrine professionnelle pour démarrer et attirer vos premiers clients en ligne.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> 5 pages sur-mesure</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire de contact & devis</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Galerie photos optimisée</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> SEO de base</li>
+                            </ul>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                        </div>
+                        <div class="tarif-card featured">
+                            <div class="tarif-badge">Le plus choisi</div>
+                            <p class="tarif-name">Pro</p>
+                            <p class="tarif-price"><sup>€</sup>1 500</p>
+                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-desc">Le site complet avec administration pour gérer votre contenu en totale autonomie.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> 10 pages + blog ou galerie</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Panneau d'administration</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Calendrier de disponibilités</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> SEO avancé + Google Maps</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Formation admin incluse</li>
+                            </ul>
+                            <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                                class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
+                                Démarrer maintenant
+                            </button>
+                        </div>
+                        <div class="tarif-card">
+                            <p class="tarif-name">Premium</p>
+                            <p class="tarif-price"><sup>€</sup>2 500</p>
+                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-desc">L'application web complète pour les prestataires qui veulent automatiser et évoluer.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Application web sur-mesure</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Réservation en ligne avec paiement</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Gestion clients & devis</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Multi-pages illimitées</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Support 3 mois inclus</li>
+                            </ul>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Premium -->
-                    <div class="tarif-card">
-                        <p class="tarif-name">Premium</p>
-                        <p class="tarif-price"><sup>€</sup>2 500</p>
-                        <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
-                        <p class="tarif-desc">L'application web complète pour les prestataires qui veulent automatiser et évoluer.</p>
-                        <ul class="tarif-features">
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Application web sur-mesure</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Réservation en ligne avec paiement</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Gestion clients & devis</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Multi-pages illimitées</li>
-                            <li class="tarif-feature"><i class="fas fa-check"></i> Support 3 mois inclus</li>
-                        </ul>
-                        <a href="/contact/"
-                            class="btn-outline" style="width:100%;justify-content:center"> Demander un devis</a>
+                <!-- PARTICULIER -->
+                <div x-show="tab==='part'" x-cloak x-transition>
+                    <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">particuliers</strong> — site d'invitation mariage, bar mitsvah, anniversaire, célébration...</p>
+                    <div class="tarifs-grid">
+                        <div class="tarif-card">
+                            <p class="tarif-name">Essentiel</p>
+                            <p class="tarif-price"><sup>€</sup>460</p>
+                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-desc">Le site d'invitation élégant pour annoncer votre événement et partager les informations essentielles.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Site one-page sur-mesure</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Programme & lieu de l'événement</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Galerie photos</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Responsive mobile</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Nom de domaine personnalisé</li>
+                            </ul>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                        </div>
+                        <div class="tarif-card featured">
+                            <div class="tarif-badge">Le plus choisi</div>
+                            <p class="tarif-name">Complet</p>
+                            <p class="tarif-price"><sup>€</sup>650</p>
+                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-desc">Le site d'invitation complet avec RSVP en ligne et galerie immersive pour vos invités.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Multi-pages sur-mesure</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> RSVP & confirmation en ligne</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Compteur jour J</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Galerie photos & vidéos</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Plan d'accès interactif</li>
+                            </ul>
+                            <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
+                                class="btn-primary" style="width:100%;justify-content:center;background:var(--gold);border:none">
+                                Démarrer maintenant
+                            </button>
+                        </div>
+                        <div class="tarif-card">
+                            <p class="tarif-name">Premium</p>
+                            <p class="tarif-price"><sup>€</sup>770</p>
+                            <p class="tarif-price-note">paiement unique, hébergement inclus 1 an</p>
+                            <p class="tarif-desc">L'expérience digitale complète avec espace admin pour personnaliser votre site jusqu'au jour J.</p>
+                            <ul class="tarif-features">
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Complet +</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Panneau d'administration</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Gestion liste d'invités</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Design premium personnalisé</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Musique & animations</li>
+                            </ul>
+                            <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center">Demander un devis</a>
+                        </div>
                     </div>
                 </div>
 
