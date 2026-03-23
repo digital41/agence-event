@@ -15,6 +15,22 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
+      - name: Debug - find correct path
+        env:
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          lftp -u u234542620_wxTntinyR,"$SFTP_PASSWORD" \
+            -p 65002 \
+            sftp://148.230.127.222 \
+            -e "
+              set sftp:auto-confirm yes;
+              pwd;
+              ls;
+              ls websites/;
+              cls -R --maxdepth 2 websites/ || echo 'cannot list websites recursively';
+              quit
+            "
+
       - name: Deploy via SFTP
         env:
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
