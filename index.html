@@ -69,12 +69,12 @@
             {
                 "@type": "Question",
                 "name": "Combien de temps faut-il pour créer un site web événementiel ?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Pour un site Essentiel ou Pro, le délai moyen est de 2 à 3 semaines à partir de la validation du devis. Ce délai comprend la phase de design, le développement et les allers-retours de validation avec vous." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Pour un site Petit Budget ou Budget Moyen, le délai moyen est de 2 à 3 semaines à partir de la validation du devis. Ce délai comprend la phase de design, le développement et les allers-retours de validation avec vous." }
             },
             {
                 "@type": "Question",
                 "name": "Pourrai-je mettre à jour le site moi-même ?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Oui, les offres Pro et Premium incluent un panneau d'administration simple, sans compétences techniques requises. Vous pouvez modifier vos textes, photos, tarifs et disponibilités en quelques clics depuis votre téléphone." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Oui, les offres Budget Moyen et Budget Confort incluent un panneau d'administration simple, sans compétences techniques requises. Vous pouvez modifier vos textes, photos, tarifs et disponibilités en quelques clics depuis votre téléphone." }
             },
             {
                 "@type": "Question",
@@ -84,7 +84,7 @@
             {
                 "@type": "Question",
                 "name": "Mon site événementiel sera-t-il visible sur Google ?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Oui, tous nos sites sont optimisés pour le référencement naturel (SEO) : balises structurées, vitesse de chargement, compatibilité mobile et indexation Google inclus. L'offre Pro et Premium intègre un SEO local avancé pour votre ville et région." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Oui, tous nos sites sont optimisés pour le référencement naturel (SEO) : balises structurées, vitesse de chargement, compatibilité mobile et indexation Google inclus. Les offres Budget Moyen et Budget Confort intègrent un SEO local avancé pour votre ville et région." }
             },
             {
                 "@type": "Question",
@@ -866,6 +866,17 @@
         }
         .whatsapp-btn:hover { transform: scale(1.08); }
 
+        /* ── Desktop/Mobile visibility ── */
+        .nav-desktop { display: block; }
+        .btn-header-desktop { display: inline-flex; }
+        .nav-mobile-toggle { display: none; }
+
+        @media (max-width: 1024px) {
+            .nav-desktop { display: none !important; }
+            .btn-header-desktop { display: none !important; }
+            .nav-mobile-toggle { display: block !important; }
+        }
+
         /* ── Mobile menu ── */
         .mobile-menu {
             position: fixed;
@@ -973,7 +984,7 @@
     <header class="site-header" id="site-header" role="banner">
         <a href="/" class="logo" aria-label="Agence Event — Accueil">Agence<em>Event</em></a>
 
-        <nav class="hidden lg:block" aria-label="Navigation principale">
+        <nav class="nav-desktop" aria-label="Navigation principale">
             <ul class="nav-links">
                 <li><a href="#secteurs">Secteurs</a></li>
                 <li><a href="#process">Méthode</a></li>
@@ -985,15 +996,15 @@
         </nav>
 
         <div style="display:flex;align-items:center;gap:0.75rem;margin-left:auto">
-            <a href="tel:+33618852010" class="hidden lg:inline-flex" style="font-size:0.75rem;font-weight:600;color:var(--brown);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--brown)'">
+            <a href="tel:+33618852010" class="btn-header-desktop" style="font-size:0.75rem;font-weight:600;color:var(--brown);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--brown)'">
                 <i class="fas fa-phone" style="margin-right:0.5rem;font-size:0.6rem;color:var(--gold)"></i>06 18 85 20 10
             </a>
             <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-                class="btn-primary hidden lg:inline-flex"
+                class="btn-primary btn-header-desktop"
                 aria-label="Prendre rendez-vous">
                 Devis gratuit
             </button>
-            <button @click="mobileMenu = true" class="lg:hidden"
+            <button @click="mobileMenu = true" class="nav-mobile-toggle"
                 aria-label="Ouvrir le menu" :aria-expanded="mobileMenu.toString()"
                 style="color:var(--charcoal);background:none;border:none;cursor:pointer;font-size:1.2rem;padding:0.5rem">
                 <i class="fas fa-bars"></i>
@@ -1014,9 +1025,10 @@
             <a href="#tarifs" @click="mobileMenu=false">Tarifs</a>
             <a href="#portfolio" @click="mobileMenu=false">Portfolio</a>
             <a href="#faq" @click="mobileMenu=false">FAQ</a>
+            <a href="/contact/" @click="mobileMenu=false">Contact</a>
         </nav>
         <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});mobileMenu=false;"
-            class="btn-primary mt-8" style="justify-content:center">
+            class="btn-primary" style="justify-content:center;margin-top:2rem">
             Démarrer mon projet
         </button>
     </div>
@@ -1203,7 +1215,7 @@
                     <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">prestataires événementiels</strong> — traiteur, salle de fête, wedding planner, photographe...</p>
                     <div class="tarifs-grid">
                         <div class="tarif-card">
-                            <p class="tarif-name">Essentiel</p>
+                            <p class="tarif-name">Petit Budget</p>
                             <p class="tarif-price">1 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">La vitrine professionnelle pour démarrer et attirer vos premiers clients en ligne.</p>
@@ -1218,7 +1230,7 @@
                         </div>
                         <div class="tarif-card featured">
                             <div class="tarif-badge">Le plus choisi</div>
-                            <p class="tarif-name">Pro</p>
+                            <p class="tarif-name">Budget Moyen</p>
                             <p class="tarif-price">2 000<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">Le site complet avec administration pour gérer votre contenu en totale autonomie.</p>
@@ -1235,7 +1247,7 @@
                             </button>
                         </div>
                         <div class="tarif-card">
-                            <p class="tarif-name">Premium</p>
+                            <p class="tarif-name">Budget Confort</p>
                             <p class="tarif-price">2 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">L'application web complète pour les prestataires qui veulent automatiser et évoluer.</p>
@@ -1256,7 +1268,7 @@
                     <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">particuliers</strong> — site d'invitation mariage, bar mitsvah, anniversaire, célébration...</p>
                     <div class="tarifs-grid">
                         <div class="tarif-card">
-                            <p class="tarif-name">Essentiel</p>
+                            <p class="tarif-name">Petit Budget</p>
                             <p class="tarif-price">460<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">Le site d'invitation élégant pour annoncer votre événement et partager les informations essentielles.</p>
@@ -1271,7 +1283,7 @@
                         </div>
                         <div class="tarif-card featured">
                             <div class="tarif-badge">Le plus choisi</div>
-                            <p class="tarif-name">Complet</p>
+                            <p class="tarif-name">Budget Moyen</p>
                             <p class="tarif-price">650<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">Le site d'invitation complet avec RSVP en ligne et galerie immersive pour vos invités.</p>
@@ -1288,12 +1300,12 @@
                             </button>
                         </div>
                         <div class="tarif-card">
-                            <p class="tarif-name">Premium</p>
+                            <p class="tarif-name">Budget Confort</p>
                             <p class="tarif-price">770<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">L'expérience digitale complète avec espace admin pour personnaliser votre site jusqu'au jour J.</p>
                             <ul class="tarif-features">
-                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Complet +</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Budget Moyen +</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Panneau d'administration</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Gestion liste d'invités</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Design premium personnalisé</li>
@@ -1346,14 +1358,14 @@
                             Combien de temps faut-il pour créer mon site ?
                             <span class="faq-icon"><i class="fas fa-plus"></i></span>
                         </summary>
-                        <p class="faq-body">Pour un site Essentiel ou Pro, le délai moyen est de 2 à 3 semaines à partir de la validation du devis. Ce délai comprend la phase de design, le développement et les allers-retours de validation avec vous.</p>
+                        <p class="faq-body">Pour un site Petit Budget ou Budget Moyen, le délai moyen est de 2 à 3 semaines à partir de la validation du devis. Ce délai comprend la phase de design, le développement et les allers-retours de validation avec vous.</p>
                     </details>
                     <details class="faq-item">
                         <summary class="faq-summary">
                             Pourrai-je mettre à jour le site moi-même ?
                             <span class="faq-icon"><i class="fas fa-plus"></i></span>
                         </summary>
-                        <p class="faq-body">Oui, les offres Pro et Premium incluent un panneau d'administration simple, sans compétences techniques requises. Vous pouvez modifier vos textes, photos, tarifs et disponibilités en quelques clics depuis votre téléphone.</p>
+                        <p class="faq-body">Oui, les offres Budget Moyen et Budget Confort incluent un panneau d'administration simple, sans compétences techniques requises. Vous pouvez modifier vos textes, photos, tarifs et disponibilités en quelques clics depuis votre téléphone.</p>
                     </details>
                     <details class="faq-item">
                         <summary class="faq-summary">
@@ -1367,7 +1379,7 @@
                             Mon site sera-t-il visible sur Google ?
                             <span class="faq-icon"><i class="fas fa-plus"></i></span>
                         </summary>
-                        <p class="faq-body">Oui, tous nos sites sont optimisés pour le référencement naturel (SEO) : balises structurées, vitesse de chargement, compatibilité mobile et indexation Google inclus. L'offre Pro et Premium intègre un SEO local avancé pour votre ville et région.</p>
+                        <p class="faq-body">Oui, tous nos sites sont optimisés pour le référencement naturel (SEO) : balises structurées, vitesse de chargement, compatibilité mobile et indexation Google inclus. Les offres Budget Moyen et Budget Confort intègrent un SEO local avancé pour votre ville et région.</p>
                     </details>
                     <details class="faq-item">
                         <summary class="faq-summary">
@@ -1432,8 +1444,7 @@
                     <h4>Nos offres</h4>
                     <ul class="footer-links">
                         <li><a href="#tarifs">Particulier — dès 460€</a></li>
-                        <li><a href="#tarifs">Pro — dès 1 500€</a></li>
-                        <li><a href="#tarifs">Premium — dès 2 500€</a></li>
+                        <li><a href="#tarifs">Professionnel — dès 1 500€</a></li>
                         <li><a href="/contact/">Devis gratuit</a></li>
                     </ul>
                 </div>

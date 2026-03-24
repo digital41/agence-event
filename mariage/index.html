@@ -96,7 +96,7 @@
                 "name": "Combien coûte un site web pour un prestataire mariage ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Nos formules démarrent à 2 000 € HT pour un site vitrine essentiel avec galerie et formulaire de contact. La formule Pro à 1 500 € HT inclut une galerie avancée, les témoignages couples et le SEO local. La formule Premium à 2 500 € HT offre un site sur-mesure complet avec réservation en ligne et blog intégré."
+                    "text": "Nos formules démarrent à 1 500 € HT pour un site vitrine Petit Budget avec galerie et formulaire de contact. La formule Budget Moyen à 2 000 € HT inclut une galerie avancée, les témoignages couples et le SEO local. La formule Budget Confort à 2 500 € HT offre un site sur-mesure complet avec réservation en ligne et blog intégré."
                 }
             },
             {
@@ -120,7 +120,7 @@
                 "name": "Mon site sera-t-il bien référencé sur Google ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Absolument. Chaque site est optimisé pour le référencement local : balises meta, données structurées, vitesse de chargement, compatibilité mobile. Nos formules Pro et Premium incluent un accompagnement SEO pour apparaître sur des recherches comme « photographe mariage + votre ville »."
+                    "text": "Absolument. Chaque site est optimisé pour le référencement local : balises meta, données structurées, vitesse de chargement, compatibilité mobile. Nos formules Budget Moyen et Budget Confort incluent un accompagnement SEO pour apparaître sur des recherches comme « photographe mariage + votre ville »."
                 }
             },
             {
@@ -888,8 +888,9 @@
             .portfolio-strip { grid-template-columns: 1fr; }
             .portfolio-img { min-height: 320px; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
-            .nav-desktop { display: none; }
-            .nav-mobile-toggle { display: block; }
+            .nav-desktop { display: none !important; }
+            .btn-header-desktop { display: none !important; }
+            .nav-mobile-toggle { display: block !important; }
         }
 
         @media (max-width: 768px) {
@@ -902,7 +903,6 @@
             .footer-bottom { flex-direction: column; text-align: center; }
             .hero { padding: 7rem 1.25rem 4rem; min-height: 90vh; }
             .hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
-            .btn-header-desktop { display: none; }
         }
 
         @media (min-width: 1025px) {
@@ -1192,9 +1192,9 @@
                 <div x-show="tab==='part'" x-transition>
                     <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">particuliers</strong> — site d'invitation de mariage, célébration...</p>
                     <div class="tarifs-grid">
-                        <!-- Essentiel -->
+                        <!-- Petit Budget -->
                         <div class="tarif-card">
-                            <div class="tarif-name">Essentiel</div>
+                            <div class="tarif-name">Petit Budget</div>
                             <div class="tarif-price">460<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></div>
                             <div class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</div>
                             <p class="tarif-desc">
@@ -1210,10 +1210,10 @@
                             <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
 
-                        <!-- Complet -->
+                        <!-- Budget Moyen -->
                         <div class="tarif-card featured">
                             <div class="tarif-badge">Le plus choisi</div>
-                            <div class="tarif-name">Complet</div>
+                            <div class="tarif-name">Budget Moyen</div>
                             <div class="tarif-price">650<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></div>
                             <div class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</div>
                             <p class="tarif-desc">
@@ -1232,16 +1232,16 @@
                             </button>
                         </div>
 
-                        <!-- Premium -->
+                        <!-- Budget Confort -->
                         <div class="tarif-card">
-                            <div class="tarif-name">Premium</div>
+                            <div class="tarif-name">Budget Confort</div>
                             <div class="tarif-price">770<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></div>
                             <div class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</div>
                             <p class="tarif-desc">
                                 L'expérience digitale complète avec espace admin pour personnaliser votre site jusqu'au jour J.
                             </p>
                             <ul class="tarif-features">
-                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Complet +</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Budget Moyen +</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Panneau admin</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Gestion liste invités</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Design premium</li>
@@ -1256,9 +1256,9 @@
                 <div x-show="tab==='pro'" x-cloak x-transition>
                     <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">prestataires événementiels</strong> — site d'invitation de mariage, célébration...</p>
                     <div class="tarifs-grid">
-                        <!-- Essentiel -->
+                        <!-- Petit Budget -->
                         <div class="tarif-card">
-                            <div class="tarif-name">Essentiel</div>
+                            <div class="tarif-name">Petit Budget</div>
                             <div class="tarif-price">1 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></div>
                             <div class="tarif-price-note">à partir de &bull; paiement unique</div>
                             <p class="tarif-desc">
@@ -1276,10 +1276,10 @@
                             <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
 
-                        <!-- Pro -->
+                        <!-- Budget Moyen -->
                         <div class="tarif-card featured">
                             <div class="tarif-badge">Le plus choisi</div>
-                            <div class="tarif-name">Pro</div>
+                            <div class="tarif-name">Budget Moyen</div>
                             <div class="tarif-price">2 000<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></div>
                             <div class="tarif-price-note">à partir de &bull; paiement unique</div>
                             <p class="tarif-desc">
@@ -1287,7 +1287,7 @@
                                 et maximiser leurs demandes de devis.
                             </p>
                             <ul class="tarif-features">
-                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout Essentiel inclus</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout Petit Budget inclus</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Galerie avancée + filtres</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Formulaire de devis multi-étapes</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Section témoignages couples</li>
@@ -1301,9 +1301,9 @@
                             </button>
                         </div>
 
-                        <!-- Premium -->
+                        <!-- Budget Confort -->
                         <div class="tarif-card">
-                            <div class="tarif-name">Premium</div>
+                            <div class="tarif-name">Budget Confort</div>
                             <div class="tarif-price">2 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></div>
                             <div class="tarif-price-note">à partir de &bull; paiement unique</div>
                             <p class="tarif-desc">
@@ -1311,7 +1311,7 @@
                                 pour dominer votre marché local.
                             </p>
                             <ul class="tarif-features">
-                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout Pro inclus</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Budget Moyen +</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Design 100% sur-mesure</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Blog intégré</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Réservation en ligne</li>
@@ -1343,9 +1343,9 @@
                             <span class="faq-icon"><i class="fas fa-plus"></i></span>
                         </summary>
                         <div class="faq-body">
-                            Nos formules démarrent à 1 500 € HT pour un site vitrine essentiel avec galerie
-                            et formulaire de contact. La formule Pro à 1 500 € HT inclut une galerie avancée,
-                            les témoignages couples et le SEO local. La formule Premium à 2 500 € HT offre
+                            Nos formules démarrent à 1 500 € HT pour un site vitrine Petit Budget avec galerie
+                            et formulaire de contact. La formule Budget Moyen à 2 000 € HT inclut une galerie avancée,
+                            les témoignages couples et le SEO local. La formule Budget Confort à 2 500 € HT offre
                             un site sur-mesure complet avec réservation en ligne et blog intégré.
                         </div>
                     </details>
@@ -1382,7 +1382,7 @@
                         <div class="faq-body">
                             Absolument. Chaque site est optimisé pour le référencement local : balises meta,
                             données structurées, vitesse de chargement, compatibilité mobile. Nos formules
-                            Pro et Premium incluent un accompagnement SEO pour apparaître sur des recherches
+                            Budget Moyen et Budget Confort incluent un accompagnement SEO pour apparaître sur des recherches
                             comme « photographe mariage + votre ville ».
                         </div>
                     </details>

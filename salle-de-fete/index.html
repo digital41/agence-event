@@ -96,7 +96,7 @@
                 "name": "Peut-on intégrer un calendrier de disponibilités en temps réel sur le site ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Oui, nos offres Pro et Premium incluent un calendrier interactif synchronisé avec votre planning réel. Vos clients voient instantanément les dates disponibles, les créneaux réservés, et peuvent pré-réserver directement en ligne. Vous gardez le contrôle total via votre panneau d'administration."
+                    "text": "Oui, nos offres Budget Moyen et Budget Confort incluent un calendrier interactif synchronisé avec votre planning réel. Vos clients voient instantanément les dates disponibles, les créneaux réservés, et peuvent pré-réserver directement en ligne. Vous gardez le contrôle total via votre panneau d'administration."
                 }
             },
             {
@@ -104,7 +104,7 @@
                 "name": "La visite virtuelle 360° est-elle incluse dans le site web ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "La visite virtuelle 360° est incluse dans les offres Pro et Premium. Nous intégrons vos photos ou vidéos 360° pour permettre à vos futurs clients de découvrir votre salle depuis chez eux. C'est un atout décisif : les salles avec visite virtuelle reçoivent en moyenne 40% de demandes en plus."
+                    "text": "La visite virtuelle 360° est incluse dans les offres Budget Moyen et Budget Confort. Nous intégrons vos photos ou vidéos 360° pour permettre à vos futurs clients de découvrir votre salle depuis chez eux. C'est un atout décisif : les salles avec visite virtuelle reçoivent en moyenne 40% de demandes en plus."
                 }
             },
             {
@@ -128,7 +128,7 @@
                 "name": "Le site est-il adapté pour recevoir des demandes de devis et réservations ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Oui, chaque site inclut un formulaire de contact/devis personnalisé. Les offres Pro et Premium ajoutent un système de réservation en ligne avec confirmation automatique par email, gestion des acomptes et rappels. Vous recevez une notification à chaque nouvelle demande."
+                    "text": "Oui, chaque site inclut un formulaire de contact/devis personnalisé. Les offres Budget Moyen et Budget Confort ajoutent un système de réservation en ligne avec confirmation automatique par email, gestion des acomptes et rappels. Vous recevez une notification à chaque nouvelle demande."
                 }
             }
         ]
@@ -832,7 +832,17 @@
 
         /* ── Utility ── */
         .hidden { display: none; }
-        .mt-8 { margin-top: 2rem; }
+
+        /* ── Nav desktop / mobile ── */
+        .nav-desktop-list { display: flex; }
+        .btn-header-desktop { display: inline-flex; }
+        .nav-mobile-toggle { display: none; }
+
+        @media (max-width: 1024px) {
+            .nav-desktop-list { display: none !important; }
+            .btn-header-desktop { display: none !important; }
+            .nav-mobile-toggle { display: block !important; }
+        }
 
         /* ── Responsive ── */
         @media (min-width: 640px) {
@@ -840,15 +850,6 @@
         }
         @media (max-width: 639px) {
             .sm\:inline-flex { display: none; }
-        }
-
-        @media (min-width: 1024px) {
-            .lg\:flex { display: flex; }
-            .lg\:hidden { display: none; }
-        }
-        @media (max-width: 1023px) {
-            .lg\:flex { display: none; }
-            .lg\:hidden { display: block; }
         }
 
         @media (max-width: 1024px) {
@@ -884,7 +885,7 @@
         <a href="/" class="logo" aria-label="Agence Event — Accueil">Agence<em>Event</em></a>
 
         <nav aria-label="Navigation principale">
-            <ul class="nav-links hidden lg:flex">
+            <ul class="nav-links nav-desktop-list">
                 <li><a href="/">Accueil</a></li>
                 <li><a href="/#secteurs">Secteurs</a></li>
                 <li><a href="#tarifs">Tarifs</a></li>
@@ -899,7 +900,7 @@
                 aria-label="Prendre rendez-vous">
                 Devis gratuit
             </button>
-            <button @click="mobileMenu = true" class="lg:hidden"
+            <button @click="mobileMenu = true" class="nav-mobile-toggle"
                 aria-label="Ouvrir le menu" :aria-expanded="mobileMenu.toString()"
                 style="color:var(--charcoal);background:none;border:none;cursor:pointer;font-size:1.2rem;padding:0.5rem">
                 <i class="fas fa-bars"></i>
@@ -922,7 +923,7 @@
             <a href="#faq" @click="mobileMenu=false">FAQ</a>
         </nav>
         <button onclick="Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});"
-            class="btn-primary mt-8" style="justify-content:center">
+            class="btn-primary" style="margin-top:2rem;justify-content:center">
             Devis gratuit
         </button>
     </div>
@@ -1087,9 +1088,9 @@
                 <div x-show="tab==='part'" x-transition>
                     <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">particuliers</strong> — site vitrine salle de fête, réception...</p>
                     <div class="tarifs-grid">
-                        <!-- Essentiel -->
+                        <!-- Petit Budget -->
                         <div class="tarif-card">
-                            <p class="tarif-name">Essentiel</p>
+                            <p class="tarif-name">Petit Budget</p>
                             <p class="tarif-price">460<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">Le site vitrine salle élégant pour présenter votre espace et recevoir vos premières demandes.</p>
@@ -1103,10 +1104,10 @@
                             <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
 
-                        <!-- Complet -->
+                        <!-- Budget Moyen -->
                         <div class="tarif-card featured">
                             <div class="tarif-badge">Le plus choisi</div>
-                            <p class="tarif-name">Complet</p>
+                            <p class="tarif-name">Budget Moyen</p>
                             <p class="tarif-price">650<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">Le site complet avec visite virtuelle et calendrier pour vos clients.</p>
@@ -1123,14 +1124,14 @@
                             </button>
                         </div>
 
-                        <!-- Premium -->
+                        <!-- Budget Confort -->
                         <div class="tarif-card">
-                            <p class="tarif-name">Premium</p>
+                            <p class="tarif-name">Budget Confort</p>
                             <p class="tarif-price">770<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">paiement unique &bull; hébergement 1 an inclus</p>
                             <p class="tarif-desc">L'expérience digitale complète avec espace admin et réservation en ligne.</p>
                             <ul class="tarif-features">
-                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Complet +</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Budget Moyen +</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Panneau admin</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Réservation en ligne</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Design premium</li>
@@ -1145,9 +1146,9 @@
                 <div x-show="tab==='pro'" x-cloak x-transition>
                     <p style="text-align:center;font-size:0.85rem;color:var(--muted);margin-bottom:2rem">Pour les <strong style="color:var(--charcoal)">prestataires événementiels</strong> — site vitrine salle de fête, réception...</p>
                     <div class="tarifs-grid">
-                        <!-- Essentiel -->
+                        <!-- Petit Budget -->
                         <div class="tarif-card">
-                            <p class="tarif-name">Essentiel</p>
+                            <p class="tarif-name">Petit Budget</p>
                             <p class="tarif-price">1 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">Votre vitrine en ligne avec les informations essentielles : photos, capacité, localisation et formulaire de contact.</p>
@@ -1162,10 +1163,10 @@
                             <a href="/contact/" class="btn-outline" style="width:100%;justify-content:center;border-radius:50px">Demander un devis</a>
                         </div>
 
-                        <!-- Pro -->
+                        <!-- Budget Moyen -->
                         <div class="tarif-card featured">
                             <div class="tarif-badge">Le plus choisi</div>
-                            <p class="tarif-name">Pro</p>
+                            <p class="tarif-name">Budget Moyen</p>
                             <p class="tarif-price">2 000<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:rgba(250,248,244,0.5);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">Site multi-pages avec visite virtuelle, calendrier de disponibilités et panneau d'administration pour tout gérer en autonomie.</p>
@@ -1185,14 +1186,14 @@
                             </button>
                         </div>
 
-                        <!-- Premium -->
+                        <!-- Budget Confort -->
                         <div class="tarif-card">
-                            <p class="tarif-name">Premium</p>
+                            <p class="tarif-name">Budget Confort</p>
                             <p class="tarif-price">2 500<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px">€</span></p>
                             <p class="tarif-price-note">à partir de &bull; paiement unique</p>
                             <p class="tarif-desc">Application web sur-mesure avec réservation en ligne, paiement d'acompte, espace client et automatisations complètes.</p>
                             <ul class="tarif-features">
-                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout le forfait Pro inclus</li>
+                                <li class="tarif-feature"><i class="fas fa-check"></i> Tout du Budget Moyen +</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Réservation en ligne + acompte</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Espace client sécurisé</li>
                                 <li class="tarif-feature"><i class="fas fa-check"></i> Emails automatiques (confirmation, rappel)</li>
@@ -1225,14 +1226,14 @@
                             Peut-on intégrer un calendrier de disponibilités en temps réel sur le site ?
                             <span class="faq-icon"><i class="fas fa-plus"></i></span>
                         </summary>
-                        <p class="faq-body">Oui, nos offres Pro et Premium incluent un calendrier interactif synchronisé avec votre planning réel. Vos clients voient instantanément les dates disponibles, les créneaux réservés, et peuvent pré-réserver directement en ligne. Vous gardez le contrôle total via votre panneau d'administration.</p>
+                        <p class="faq-body">Oui, nos offres Budget Moyen et Budget Confort incluent un calendrier interactif synchronisé avec votre planning réel. Vos clients voient instantanément les dates disponibles, les créneaux réservés, et peuvent pré-réserver directement en ligne. Vous gardez le contrôle total via votre panneau d'administration.</p>
                     </details>
                     <details class="faq-item">
                         <summary class="faq-summary">
                             La visite virtuelle 360° est-elle incluse dans le site web ?
                             <span class="faq-icon"><i class="fas fa-plus"></i></span>
                         </summary>
-                        <p class="faq-body">La visite virtuelle 360° est incluse dans les offres Pro et Premium. Nous intégrons vos photos ou vidéos 360° pour permettre à vos futurs clients de découvrir votre salle depuis chez eux. C'est un atout décisif : les salles avec visite virtuelle reçoivent en moyenne 40% de demandes en plus.</p>
+                        <p class="faq-body">La visite virtuelle 360° est incluse dans les offres Budget Moyen et Budget Confort. Nous intégrons vos photos ou vidéos 360° pour permettre à vos futurs clients de découvrir votre salle depuis chez eux. C'est un atout décisif : les salles avec visite virtuelle reçoivent en moyenne 40% de demandes en plus.</p>
                     </details>
                     <details class="faq-item">
                         <summary class="faq-summary">
@@ -1253,7 +1254,7 @@
                             Le site est-il adapté pour recevoir des demandes de devis et réservations ?
                             <span class="faq-icon"><i class="fas fa-plus"></i></span>
                         </summary>
-                        <p class="faq-body">Oui, chaque site inclut un formulaire de contact/devis personnalisé. Les offres Pro et Premium ajoutent un système de réservation en ligne avec confirmation automatique par email, gestion des acomptes et rappels. Vous recevez une notification à chaque nouvelle demande.</p>
+                        <p class="faq-body">Oui, chaque site inclut un formulaire de contact/devis personnalisé. Les offres Budget Moyen et Budget Confort ajoutent un système de réservation en ligne avec confirmation automatique par email, gestion des acomptes et rappels. Vous recevez une notification à chaque nouvelle demande.</p>
                     </details>
                 </div>
             </div>
@@ -1310,9 +1311,9 @@
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#tarifs">Site Essentiel — 1 500€</a></li>
-                        <li><a href="#tarifs">Site Pro — 2 000€</a></li>
-                        <li><a href="#tarifs">App Premium — 2 500€</a></li>
+                        <li><a href="#tarifs">Petit Budget — 1 500€</a></li>
+                        <li><a href="#tarifs">Budget Moyen — 2 000€</a></li>
+                        <li><a href="#tarifs">Budget Confort — 2 500€</a></li>
                         <li><a href="https://nathanibgui.com/solutions/creation-site-web-evenementiel/" target="_blank" rel="noopener">En savoir plus</a></li>
                     </ul>
                 </div>
