@@ -839,9 +839,20 @@
                         </div>
 
                         <p class="form-note">
-                            <!-- Form will be connected to a backend or n8n workflow -->
                             Réponse garantie sous 24 heures ouvrées.
                         </p>
+
+                        <div id="form-success" style="display:none;margin-top:1.5rem;padding:1.25rem;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:12px;text-align:center;">
+                            <i class="fas fa-check-circle" style="color:#4ade80;font-size:1.5rem;margin-bottom:0.5rem;display:block"></i>
+                            <p style="color:#4ade80;font-weight:700;margin-bottom:0.25rem">Message envoyé avec succès !</p>
+                            <p style="color:rgba(250,248,244,0.6);font-size:0.85rem">Nathan vous répondra sous 24h.</p>
+                        </div>
+
+                        <div id="form-error" style="display:none;margin-top:1.5rem;padding:1.25rem;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:12px;text-align:center;">
+                            <i class="fas fa-exclamation-circle" style="color:#ef4444;font-size:1.5rem;margin-bottom:0.5rem;display:block"></i>
+                            <p style="color:#ef4444;font-weight:700;margin-bottom:0.25rem">Erreur lors de l'envoi</p>
+                            <p style="color:rgba(250,248,244,0.6);font-size:0.85rem">Contactez-nous directement au <a href="tel:+33618852010" style="color:var(--gold)">06 18 85 20 10</a></p>
+                        </div>
                     </form>
                 </div>
 
@@ -1012,12 +1023,72 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
     <script>
         // Header scroll effect
         const header = document.getElementById('site-header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 40);
         }, { passive: true });
+
+        // EmailJS init
+        emailjs.init('6hYZ1iz7zgLGgNn8t');
+
+        // Contact form handler
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const successDiv = document.getElementById('form-success');
+        const errorDiv = document.getElementById('form-error');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            successDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
+
+            // Collect form data
+            var params = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value || 'Non renseigné',
+                event_type: document.getElementById('event-type').value,
+                message: document.getElementById('message').value,
+                source: 'agence-event.nathanibgui.com',
+                page: window.location.pathname
+            };
+
+            emailjs.send('service_so44t3i', 'template_cg0zj97', params)
+                .then(function() {
+                    successDiv.style.display = 'block';
+                    contactForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Envoyé !';
+
+                    // GA4 event
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'form_submit', {
+                            event_category: 'contact',
+                            event_label: 'agence_event_contact'
+                        });
+                    }
+
+                    // Reset button after 3s
+                    setTimeout(function() {
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+                    }, 3000);
+                })
+                .catch(function(err) {
+                    console.error('EmailJS error:', err);
+                    errorDiv.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+                });
+        });
     </script>
 
 </body>
