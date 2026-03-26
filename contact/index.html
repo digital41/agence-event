@@ -797,7 +797,7 @@
                     <h2>Envoyez-nous un message</h2>
                     <p class="form-intro">Décrivez votre projet et recevez un devis personnalisé sous 24h.</p>
 
-                    <form action="#" method="POST" id="contact-form">
+                    <form id="contact-form" onsubmit="return false;">
                         <div class="form-group">
                             <label for="name">Nom complet</label>
                             <input type="text" id="name" name="name" placeholder="Votre nom" required>
@@ -1062,7 +1062,7 @@
                 page: window.location.pathname
             };
 
-            emailjs.send('service_so44t3i', 'template_cg0zj97', params)
+            emailjs.send('service_so44t3i', 'template_9oc8vci', params)
                 .then(function() {
                     successDiv.style.display = 'block';
                     contactForm.reset();
@@ -1085,6 +1085,7 @@
                 .catch(function(err) {
                     console.error('EmailJS error:', err);
                     errorDiv.style.display = 'block';
+                    errorDiv.querySelector('p:first-of-type').textContent = 'Erreur : ' + (err.text || err.message || 'Envoi échoué');
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
                 });
