@@ -1052,11 +1052,14 @@
             errorDiv.style.display = 'none';
 
             // Collect form data
+            var eventType = document.getElementById('event-type').value;
+            var fromName = document.getElementById('name').value;
             var params = {
-                from_name: document.getElementById('name').value,
+                title: fromName + ' — ' + eventType,
+                from_name: fromName,
                 from_email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value || 'Non renseigné',
-                event_type: document.getElementById('event-type').value,
+                event_type: eventType,
                 message: document.getElementById('message').value,
                 source: 'agence-event.nathanibgui.com',
                 page: window.location.pathname
